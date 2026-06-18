@@ -39,9 +39,9 @@ export function SiteFooter() {
           <ul className="space-y-2 text-sm">
             {CATEGORIES.slice(0, 6).map((c) => (
               <li key={c.slug}>
-                <Link href={`/categories/${c.slug}`} className="text-white/80 hover:text-accent">
+                <a href={`/categories/${c.slug}`} className="text-white/80 hover:text-accent">
                   {c.name}
-                </Lnik>
+                </a>
               </li>
             ))}
           </ul>
