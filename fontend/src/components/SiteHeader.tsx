@@ -5,9 +5,9 @@ import { SITE } from "@/lib/site";
 const nav = [
   { to: "/", label: "Home" },
   { to: "#categories", label: "Categories" }, // Single page view support k liye hash navigation best hai
-  { to: "/repairs", label: "Repairs" },
-  { to: "/gallery", label: "Gallery" },
-  { to: "/contact", label: "Contact" },
+  { to: "#repairs", label: "Repairs" },
+{ to: "#gallery", label: "Gallery" },
+{ to: "#contact", label: "Contact" },
 ] as const;
 
 export function SiteHeader() {
