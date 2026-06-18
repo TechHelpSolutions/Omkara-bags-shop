@@ -1,5 +1,6 @@
 import { Facebook, Instagram, MapPin, Phone, MessageCircle } from "lucide-react";
 import { SITE, CATEGORIES, waLink, defaultEnquiry } from "@/lib/site";
+import { Link } from "@tanstack/react-router";
 
 export function SiteFooter() {
   return (
@@ -38,11 +39,15 @@ export function SiteFooter() {
           <h4 className="text-sm uppercase tracking-[0.2em] text-white/60 mb-4">Categories</h4>
           <ul className="space-y-2 text-sm">
             {CATEGORIES.slice(0, 6).map((c) => (
-              <li key={c.slug}>
-                <a href={`/categories/${c.slug}`} className="text-white/80 hover:text-accent">
-                  {c.name}
-                </a>
-              </li>
+               <li key={c.slug}>
+              <Link
+                to="/categories/$slug"
+                params={{ slug: c.slug }}
+                className="text-white/80 hover:text-accent"
+              >
+                {c.name}
+              </Link>
+            </li>
             ))}
           </ul>
         </div>
