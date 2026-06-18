@@ -113,7 +113,7 @@ function Categories() {
                   View Products <ArrowRight className="size-3.5 group-hover:translate-x-1 transition-transform" />
                 </div>
               </div>
-            </a>
+            </Link>
           ))}
         </div>
       </div>
