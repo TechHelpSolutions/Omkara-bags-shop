@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
-import "styles.css"; // Agar tumhara CSS global path alag hai to adjust kar lena
+import "./styles.css"; // "styles.css" ko "./styles.css" kar diya hai bas
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
