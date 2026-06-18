@@ -7,6 +7,7 @@ import gallery3 from "@/assets/gallery-3.jpg";
 import gallery4 from "@/assets/gallery-4.jpg";
 import { CATEGORIES, SITE, defaultEnquiry, waLink } from "@/lib/site";
 import { InquiryForm } from "@/components/InquiryForm";
+import { Link } from "@tanstack/react-router";
 
 export default function Home() {
   return (
@@ -96,12 +97,12 @@ function Categories() {
         <SectionHeader eyebrow="Shop by Category" title={<>Explore Our <span className="gold-text">Collection</span></>} subtitle="From school bags to trolley luggage, we stock every kind of bag you need." />
         <div className="mt-12 grid gap-5 grid-cols-2 md:grid-cols-3 lg:grid-cols-3">
           {CATEGORIES.map((c, i) => (
-            <a
-              key={c.slug}
-              href={`/categories/${c.slug}`}
-              className="group relative overflow-hidden rounded-2xl bg-card border border-border shadow-[var(--shadow-card)] hover:-translate-y-1 transition-transform"
-              style={{ animationDelay: `${i * 60}ms` }}
-            >
+           <Link
+  key={c.slug}
+  to="/categories/$slug"
+  params={{ slug: c.slug }}
+  className="group relative overflow-hidden rounded-2xl bg-card border border-border shadow-[var(--shadow-card)] hover:-translate-y-1 transition-transform"
+>
               <div className="aspect-[4/3] overflow-hidden bg-muted">
                 <img src={c.image} alt={c.name} loading="lazy" className="size-full object-cover group-hover:scale-110 transition-transform duration-700" />
               </div>
