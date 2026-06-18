@@ -17,7 +17,7 @@ export function SiteFooter() {
             Wholesale & retail bag store and professional repair center, trusted across the district for quality, variety and service.
           </p>
           <div className="mt-5 flex gap-3">
-            <a aria-label="Facebook" href="#" className="size-9 grid place-items-center rounded-full border border-white/15 hover:bg-white/10"><Facebook className="size-4" /></a>
+             aria-label="Facebook" href="#" className="size-9 grid place-items-center rounded-full border border-white/15 hover:bg-white/10"><Facebook className="size-4" /></a>
             <a aria-label="Instagram" href="#" className="size-9 grid place-items-center rounded-full border border-white/15 hover:bg-white/10"><Instagram className="size-4" /></a>
             <a aria-label="WhatsApp" href={waLink(defaultEnquiry())} className="size-9 grid place-items-center rounded-full border border-white/15 hover:bg-white/10"><MessageCircle className="size-4" /></a>
           </div>
@@ -39,9 +39,9 @@ export function SiteFooter() {
           <ul className="space-y-2 text-sm">
             {CATEGORIES.slice(0, 6).map((c) => (
               <li key={c.slug}>
-                <a href={`/categories/${c.slug}`} className="text-white/80 hover:text-accent">
+                <Link href={`/categories/${c.slug}`} className="text-white/80 hover:text-accent">
                   {c.name}
-                </a>
+                </Lnik>
               </li>
             ))}
           </ul>
