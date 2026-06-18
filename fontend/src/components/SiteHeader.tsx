@@ -1,13 +1,15 @@
 import { useState } from "react";
 import { Menu, X, Phone } from "lucide-react";
 import { SITE } from "@/lib/site";
+import { Link } from "@tanstack/react-router";
 
 const nav = [
   { to: "/", label: "Home" },
-  { to: "#categories", label: "Categories" }, // Single page view support k liye hash navigation best hai
-  { to: "#repairs", label: "Repairs" },
-{ to: "#gallery", label: "Gallery" },
-{ to: "#contact", label: "Contact" },
+  { to: "/about", label: "About" },
+  { to: "/repairs", label: "Repairs" },
+  { to: "/gallery", label: "Gallery" },
+  { to: "/contact", label: "Contact" },
+  
 ] as const;
 
 export function SiteHeader() {
@@ -29,13 +31,13 @@ export function SiteHeader() {
 
         <nav className="hidden md:flex items-center gap-7">
           {nav.map((n) => (
-            <a
-              key={n.to}
-              href={n.to}
-              className="text-sm font-medium text-foreground/80 hover:text-accent transition-colors"
-            >
-              {n.label}
-            </a>
+            <Link
+  key={n.to}
+  to={n.to}
+  className="text-sm font-medium text-foreground/80 hover:text-accent transition-colors"
+>
+  {n.label}
+</Link>
           ))}
           <a href={`tel:${SITE.phoneIntl}`} className="btn-primary !py-2.5 !px-5 text-xs">
             <Phone className="size-4" /> {SITE.phone}
@@ -55,14 +57,14 @@ export function SiteHeader() {
         <div className="md:hidden border-t border-border bg-background">
           <div className="container-page flex flex-col gap-1 py-4">
             {nav.map((n) => (
-              <a
-                key={n.to}
-                href={n.to}
-                onClick={() => setOpen(false)}
-                className="py-2.5 text-base font-medium border-b border-border/60"
-              >
-                {n.label}
-              </a>
+              <Link
+  key={n.to}
+  to={n.to}
+  onClick={() => setOpen(false)}
+  className="py-2.5 text-base font-medium border-b border-border/60"
+>
+  {n.label}
+</Link>
             ))}
             <a href={`tel:${SITE.phoneIntl}`} className="btn-primary mt-3 w-full">
               <Phone className="size-4" /> Call {SITE.phone}
