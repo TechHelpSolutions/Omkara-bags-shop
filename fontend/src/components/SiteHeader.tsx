@@ -1,11 +1,10 @@
-import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Menu, X, Phone } from "lucide-react";
 import { SITE } from "@/lib/site";
 
 const nav = [
   { to: "/", label: "Home" },
-  { to: "/about", label: "About" },
+  { to: "#categories", label: "Categories" }, // Single page view support k liye hash navigation best hai
   { to: "/repairs", label: "Repairs" },
   { to: "/gallery", label: "Gallery" },
   { to: "/contact", label: "Contact" },
@@ -16,7 +15,7 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 backdrop-blur-md bg-background/85 border-b border-border/60">
       <div className="container-page flex items-center justify-between py-3.5">
-        <Link to="/" className="flex items-center gap-3" onClick={() => setOpen(false)}>
+        <a href="/" className="flex items-center gap-3" onClick={() => setOpen(false)}>
           <div className="size-10 rounded-full grid place-items-center bg-[var(--gradient-hero)] text-[var(--cream)] font-display text-lg">
             <span className="gold-text font-semibold">ॐ</span>
           </div>
@@ -26,19 +25,17 @@ export function SiteHeader() {
               Bhatia Attachi House
             </div>
           </div>
-        </Link>
+        </a>
 
         <nav className="hidden md:flex items-center gap-7">
           {nav.map((n) => (
-            <Link
+            <a
               key={n.to}
-              to={n.to}
+              href={n.to}
               className="text-sm font-medium text-foreground/80 hover:text-accent transition-colors"
-              activeProps={{ className: "text-accent" }}
-              activeOptions={{ exact: n.to === "/" }}
             >
               {n.label}
-            </Link>
+            </a>
           ))}
           <a href={`tel:${SITE.phoneIntl}`} className="btn-primary !py-2.5 !px-5 text-xs">
             <Phone className="size-4" /> {SITE.phone}
@@ -58,16 +55,14 @@ export function SiteHeader() {
         <div className="md:hidden border-t border-border bg-background">
           <div className="container-page flex flex-col gap-1 py-4">
             {nav.map((n) => (
-              <Link
+              <a
                 key={n.to}
-                to={n.to}
+                href={n.to}
                 onClick={() => setOpen(false)}
                 className="py-2.5 text-base font-medium border-b border-border/60"
-                activeProps={{ className: "text-accent" }}
-                activeOptions={{ exact: n.to === "/" }}
               >
                 {n.label}
-              </Link>
+              </a>
             ))}
             <a href={`tel:${SITE.phoneIntl}`} className="btn-primary mt-3 w-full">
               <Phone className="size-4" /> Call {SITE.phone}
