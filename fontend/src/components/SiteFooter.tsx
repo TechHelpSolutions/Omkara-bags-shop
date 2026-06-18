@@ -17,7 +17,7 @@ export function SiteFooter() {
             Wholesale & retail bag store and professional repair center, trusted across the district for quality, variety and service.
           </p>
           <div className="mt-5 flex gap-3">
-             aria-label="Facebook" href="#" className="size-9 grid place-items-center rounded-full border border-white/15 hover:bg-white/10"><Facebook className="size-4" /></a>
+            <a aria-label="Facebook" href="#" className="size-9 grid place-items-center rounded-full border border-white/15 hover:bg-white/10"><Facebook className="size-4" /></a>
             <a aria-label="Instagram" href="#" className="size-9 grid place-items-center rounded-full border border-white/15 hover:bg-white/10"><Instagram className="size-4" /></a>
             <a aria-label="WhatsApp" href={waLink(defaultEnquiry())} className="size-9 grid place-items-center rounded-full border border-white/15 hover:bg-white/10"><MessageCircle className="size-4" /></a>
           </div>
