@@ -1,10 +1,9 @@
-/* 1. Global External Framework Imports */
-@import "tailwindcss";
+@import "tailwindcss" source(none);
+@source "../src";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
-/* 2. Theme Configurations (Tailwind v4 style) */
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -41,7 +40,6 @@
   --gradient-gold: linear-gradient(135deg, oklch(0.86 0.14 85) 0%, oklch(0.74 0.16 70) 50%, oklch(0.62 0.14 60) 100%);
 }
 
-/* 3. Global Native Variable Definitions */
 :root {
   --radius: 0.875rem;
 
@@ -67,7 +65,6 @@
   --cream: oklch(0.97 0.02 85);
 }
 
-/* 4. Base HTML tags configuration */
 @layer base {
   * { border-color: var(--color-border); }
   html { scroll-behavior: smooth; }
@@ -77,110 +74,92 @@
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
   }
-  h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.01em; }
+  h1,h2,h3,h4 { font-family: var(--font-display); letter-spacing: -0.01em; }
 }
 
-/* 5. Custom Animation Keyframes */
+.container-page {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 1200px;
+  padding-inline: 1.25rem;
+}
+
+.gold-text {
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.5rem;
+  border-radius: 999px;
+  background: var(--gradient-gold);
+  color: var(--gold-foreground);
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  box-shadow: var(--shadow-luxe);
+  transition: transform .25s ease, box-shadow .25s ease, filter .25s ease;
+  &:hover { transform: translateY(-2px); filter: brightness(1.05); }
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.4rem;
+  border-radius: 999px;
+  border: 1px solid color-mix(in oklab, var(--gold) 60%, transparent);
+  color: var(--cream);
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: background .2s ease, color .2s ease;
+  &:hover { background: color-mix(in oklab, var(--gold) 18%, transparent); }
+}
+
+.btn-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.5rem;
+  border-radius: 999px;
+  background: var(--whatsapp);
+  color: white;
+  font-weight: 600;
+  font-size: 0.95rem;
+  box-shadow: 0 14px 30px -12px color-mix(in oklab, var(--whatsapp) 70%, transparent);
+  transition: transform .2s ease;
+  &:hover { transform: translateY(-2px); }
+}
+
+.section-pad {
+  padding-block: 5rem;
+  @media (min-width: 768px) { padding-block: 7rem; }
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
 @keyframes fade-up {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
 @keyframes float-pulse {
-  0%, 100% { transform: translateY(0); }
+  0%,100% { transform: translateY(0); }
   50% { transform: translateY(-6px); }
 }
-
-/* 6. Tailwind v4 Clean Utilities Block (Zero Nesting Rules) */
-@layer utilities {
-  @utility container-page {
-    margin-inline: auto;
-    width: 100%;
-    max-width: 1200px;
-    padding-inline: 1.25rem;
-  }
-
-  @utility gold-text {
-    background: var(--gradient-gold);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
-
-  @utility btn-primary {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    padding: 0.85rem 1.5rem;
-    border-radius: 999px;
-    background: var(--gradient-gold);
-    color: var(--gold-foreground);
-    font-weight: 600;
-    font-size: 0.95rem;
-    letter-spacing: 0.02em;
-    box-shadow: var(--shadow-luxe);
-    transition: transform .25s ease, box-shadow .25s ease, filter .25s ease;
-  }
-  @utility btn-primary:hover {
-    transform: translateY(-2px);
-    filter: brightness(1.05);
-  }
-
-  @utility btn-outline {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    padding: 0.8rem 1.4rem;
-    border-radius: 999px;
-    border: 1px solid color-mix(in oklab, var(--gold) 60%, transparent);
-    color: var(--cream);
-    font-weight: 500;
-    font-size: 0.95rem;
-    transition: background .2s ease, color .2s ease;
-  }
-  @utility btn-outline:hover {
-    background: color-mix(in oklab, var(--gold) 18%, transparent);
-  }
-
-  @utility btn-whatsapp {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    padding: 0.85rem 1.5rem;
-    border-radius: 999px;
-    background: var(--whatsapp);
-    color: white;
-    font-weight: 600;
-    font-size: 0.95rem;
-    box-shadow: 0 14px 30px -12px color-mix(in oklab, var(--whatsapp) 70%, transparent);
-    transition: transform .2s ease;
-  }
-  @utility btn-whatsapp:hover {
-    transform: translateY(-2px);
-  }
-
-  @utility section-pad {
-    padding-block: 5rem;
-  }
-
-  @utility eyebrow {
-    display: inline-block;
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    color: var(--accent);
-  }
-
-  @utility animate-fade-up { animation: fade-up .8s ease-out both; }
-  @utility animate-float { animation: float-pulse 3s ease-in-out infinite; }
-}
-
-/* Media query utilities ko block ke bilkul bahar alag se declare kiya hai */
-@media (min-width: 768px) {
-  @utility section-pad {
-    padding-block: 7rem;
-  }
-}
+.animate-fade-up { animation: fade-up .8s ease-out both; }
+.animate-float { animation: float-pulse 3s ease-in-out infinite; }
