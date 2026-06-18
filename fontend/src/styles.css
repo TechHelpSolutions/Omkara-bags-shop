@@ -1,4 +1,4 @@
-/* 1. Saare external global imports sabse upar */
+/* 1. Global External Framework Imports */
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -90,7 +90,7 @@
   50% { transform: translateY(-6px); }
 }
 
-/* 6. Utility Scope Definition (Brings clean compilation for LightningCSS) */
+/* 6. Tailwind v4 Clean Utilities Block (Zero Nesting Rules) */
 @layer utilities {
   @utility container-page {
     margin-inline: auto;
@@ -120,7 +120,10 @@
     letter-spacing: 0.02em;
     box-shadow: var(--shadow-luxe);
     transition: transform .25s ease, box-shadow .25s ease, filter .25s ease;
-    &:hover { transform: translateY(-2px); filter: brightness(1.05); }
+  }
+  @utility btn-primary:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.05);
   }
 
   @utility btn-outline {
@@ -135,7 +138,9 @@
     font-weight: 500;
     font-size: 0.95rem;
     transition: background .2s ease, color .2s ease;
-    &:hover { background: color-mix(in oklab, var(--gold) 18%, transparent); }
+  }
+  @utility btn-outline:hover {
+    background: color-mix(in oklab, var(--gold) 18%, transparent);
   }
 
   @utility btn-whatsapp {
@@ -151,12 +156,13 @@
     font-size: 0.95rem;
     box-shadow: 0 14px 30px -12px color-mix(in oklab, var(--whatsapp) 70%, transparent);
     transition: transform .2s ease;
-    &:hover { transform: translateY(-2px); }
+  }
+  @utility btn-whatsapp:hover {
+    transform: translateY(-2px);
   }
 
   @utility section-pad {
     padding-block: 5rem;
-    @media (min-width: 768px) { padding-block: 7rem; }
   }
 
   @utility eyebrow {
@@ -170,4 +176,11 @@
 
   @utility animate-fade-up { animation: fade-up .8s ease-out both; }
   @utility animate-float { animation: float-pulse 3s ease-in-out infinite; }
+}
+
+/* Media query utilities ko block ke bilkul bahar alag se declare kiya hai */
+@media (min-width: 768px) {
+  @utility section-pad {
+    padding-block: 7rem;
+  }
 }
