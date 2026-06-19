@@ -143,7 +143,7 @@ function RepairSection() {
           </h2>
           <p className="mt-5 text-white/75 text-lg leading-relaxed">
             We are among the few businesses in the entire district providing
-            professional repair services for all types of bags and luggage.
+            professional  for all types of bags and luggage.
           </p>
           <div className="mt-8 grid grid-cols-2 sm:grid-cols-3 gap-2.5">
             {services.map((s) => (
@@ -157,7 +157,7 @@ function RepairSection() {
             <div className="text-white/85">Wholesale & Retail Products + Professional Repairing</div>
           </div>
           <div className="mt-7 flex flex-wrap gap-3">
-            <a href="/repairs" className="btn-primary">Repair Services <ArrowRight className="size-4" /></a>
+            <Link href="/repairs" className="btn-primary">Repair Services <ArrowRight className="size-4" /></Link>
             <a href={waLink("Hello OMKARA, I need bag/luggage repair help.")} className="btn-whatsapp"><MessageCircle className="size-4" /> Get Repair Quote</a>
           </div>
         </div>
