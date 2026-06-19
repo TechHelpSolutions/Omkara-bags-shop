@@ -214,7 +214,7 @@ function GalleryStrip() {
           ))}
         </div>
         <div className="mt-8 text-center">
-          <a href="/gallery" className="btn-outline !text-foreground !border-foreground/30 hover:!bg-foreground/5">View Full Gallery <ArrowRight className="size-4" /></a>
+          <Link href="/gallery" className="btn-outline !text-foreground !border-foreground/30 hover:!bg-foreground/5">View Full Gallery <ArrowRight className="size-4" /></Link>
         </div>
       </div>
     </section>
